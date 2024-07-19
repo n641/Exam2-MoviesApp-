@@ -1,0 +1,112 @@
+body {
+  background-color: rgb(0, 0, 0);
+  transition: 1s all;
+}
+
+
+.fs-30 {
+  font-size: 60px;
+}
+
+.top-80 {
+  top: 55vh;
+}
+
+.pink-bg {
+  background-color: #e68285;
+}
+
+.w-15 {
+  width: 15%;
+}
+
+.w-30 {
+  width: 20%;
+}
+
+.drawer .drawer-items p {
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.drawer {
+}
+
+.open-drawer {
+  cursor: pointer;
+  left: 20px;
+}
+
+.singer-item {
+  cursor: pointer;
+}
+
+.singer-des {
+  display: none;
+  overflow: hidden;
+}
+
+.close-item {
+  cursor: pointer;
+}
+.drawer .drawer-items p:hover {
+  color: brown !important;
+}
+.tab {
+  top: 400px;
+  position: absolute;
+  opacity: 0;
+}
+
+/* ////////////////////////////////////////////movie items styles //////////////////////////////// */
+.movie-item {
+  position: relative;
+  overflow: hidden;
+  transition: 1s all;
+}
+
+img {
+  transition: 1s all;
+  overflow: hidden;
+}
+
+.movie-item:hover .overLayer {
+  background-color: rgba(0, 0, 0, 0.6);
+  display: block;
+}
+
+.movie-item:hover img {
+  transform: scale(1.3);
+  rotate: 8deg;
+}
+
+.overLayer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  display: none;
+  padding: 15px;
+}
+
+.overLayer i {
+  color: yellow;
+}
+
+img{
+  object-fit: cover;
+}
+
+section{
+  transition: 2s all;
+}
+
+
+/* /////////////////////////////contact us ////////////////////////////////////////////////// */
+
+#contact input{
+  border: 0px solid black !important;
+  margin-inline: 10px ;
+}

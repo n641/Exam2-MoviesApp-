@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link rel="icon" href="./imgs/logo.png" type="image/icon type" />
+
+    <link rel="stylesheet" href="styles/all.min.css" />
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/mainStyles.css" />
+  </head>
+
+  <body>
+    <div class="position-fixed d-flex top-50 vh-100 open-drawer">
+      <i class="fa-solid fa-bars fs-4 text-light"></i>
+    </div>
+
+    <!-- drawer -->
+
+    <nav class="position-fixed top-0 vh-100 z-3 drawer bg-black w-30 d-flex">
+      <div class="p-4 flex-grow-1 d-flex flex-column justify-content-between">
+        <div class="drawer-items">
+          <p class="text-light my-4 tab" data-target="Now Playing">
+            Now Playing
+          </p>
+          <p class="text-light my-4 tab" data-target="Popular">Popular</p>
+          <p class="text-light my-4 tab" data-target="Top Rated">Top Rated</p>
+          <p class="text-light my-4 tab" data-target="Trending">Trending</p>
+          <p class="text-light my-4 tab" data-target="UpComing">UpComing</p>
+          <p class="text-light my-4 tab" data-target="Contact Us">Contact Us</p>
+        </div>
+
+        <div class="">
+          <p class="text-light my-2">Now Playing</p>
+          <p class="text-light my-2">CopyRight @ 2022 All Right Reserved.</p>
+          <p class="text-light my-2">
+            Created by <span style="color: brown"> Housam Ramadan</span>
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="sideMenue bg-white vh-100 d-flex flex-column justify-content-between align-items-center py-3"
+      >
+        <img src="./imgs/logo.png" class="w-50" />
+        <i class="fa-solid fa-align-justify text-black mx-4 close-item"></i>
+        <div class="flex-column d-flex gap-3">
+          <i class="fa-solid fa-globe"></i>
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+      </div>
+    </nav>
+
+    <section
+      id="Main"
+      class="container d-flex flex-column align-items-center mt-5"
+    >
+      <input
+        type="text"
+        class="form-control w-50 bg-transparent rounded-5 border-2 text-light"
+        id="searchInput"
+        placeholder="Search"
+      />
+
+      <div class="row m-5 g-4 data-section"></div>
+    </section>
+
+    <section id="contact" class=" w-75 mx-auto">
+      <p class="fs-1 text-light fw-light my-4 ms-5">Contact Us</p>
+      <div class="row mb-5 g-3">
+        <input
+          type="email"
+          class="col-lg-6"
+          id="exampleFormControlInput1"
+          placeholder="name@example.com"
+        />
+        <input
+          type="email"
+          class="col-lg-6"
+
+          id="exampleFormControlInput1"
+          placeholder="name@example.com"
+        />
+      </div>
+    </section>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
