@@ -3,6 +3,10 @@ body {
   transition: 1s all;
 }
 
+.end-20{
+  right: 10px;
+  bottom: 10px !important;
+}
 
 .fs-30 {
   font-size: 60px;
@@ -89,24 +93,189 @@ img {
   overflow: hidden;
   display: none;
   padding: 15px;
+  transition: all 2s;
+}
+
+h1 {
+  transform: translateY(-100%);
+  transition: all 1s;
+}
+
+.animationUp {
+  transform: translateY(100%);
+  transition: all 1s;
+}
+
+.overLayer:hover .animationUp {
+  transform: translateY(0%);
+}
+
+.overLayer:hover h1 {
+  transform: translateY(0%);
+}
+
+.overLayer :not(:hover) h1 {
+  transform: translateX(-100%);
 }
 
 .overLayer i {
   color: yellow;
 }
 
-img{
+img {
   object-fit: cover;
 }
 
-section{
+section {
   transition: 2s all;
 }
 
+/* animation */
+
+.parag {
+  transform: matrix3d(
+    1,
+    0,
+    0,
+    0,
+    0,
+    0.5,
+    0.866,
+    0,
+    0,
+    -0.866,
+    0.5,
+    0,
+    0,
+    0,
+    0,
+    1
+  );
+  transition: all 1s ease;
+}
+
+.overLayer:hover .parag {
+  animation: transform3d 0.2s ease both;
+}
+
+@keyframes transform3d {
+  0% {
+    transform: matrix3d(
+      1,
+      0,
+      0,
+      0,
+      0,
+      0.5,
+      0.866,
+      0,
+      0,
+      -0.866,
+      0.5,
+      0,
+      0,
+      0,
+      0,
+      1
+    );
+  }
+
+  25% {
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  75% {
+    transform: matrix3d(
+      1,
+      0,
+      0,
+      0,
+      0,
+      0.5,
+      0.866,
+      0,
+      0,
+      -0.866,
+      0.5,
+      0,
+      0,
+      0,
+      0,
+      1
+    );
+  }
+
+  100% {
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+}
 
 /* /////////////////////////////contact us ////////////////////////////////////////////////// */
 
-#contact input{
+#contact input {
   border: 0px solid black !important;
-  margin-inline: 10px ;
+  background-color: transparent;
+  border-left: 10px solid transparent !important;
+  border-right: 10px solid transparent !important;
+  border-bottom: 2px solid rgb(156, 154, 154) !important;
+  font-size: 18px;
+  padding-bottom: 10px;
+  color: white;
+  text-align: left;
 }
+
+#contact input::placeholder {
+  text-align: center;
+}
+
+#contact input:focus {
+  background-color: transparent;
+  outline-width: 0;
+}
+
+.eye {
+  cursor: pointer;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+input:focus + .eye {
+  opacity: 1;
+  transform: translateY(0%);
+
+}
+
+input:not(:focus) + .eye {
+  opacity: 0;
+  transform: translateY(-100%);
+
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-10px);
+  }
+  40%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+#submitButton {
+  transition: transform 0.3s ease-in-out;
+}
+
+.leftTranslate {
+  transform: translateX(0px);
+}
+
+.rightTranslate {
+  transform: translateX(200px);
+}
+

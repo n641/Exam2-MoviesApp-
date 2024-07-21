@@ -49,12 +49,12 @@ $(".open-drawer").click(function () {
   ToggleSlider();
 });
 
-$("#title").css("postion", "absolute");
-// movies item animation
-$(".movie-item").hover(() => {
-  $("#title").slideDown(1000);
-  console.log("asdasd");
-});
+// $("h1").css("postion", "absolute");
+// // movies item animation
+// $(".overLayer").hover(() => {
+//   $(".overLayer:hover h1").slideUp(1000);
+//   console.log("asdasd");
+// });
 
 // /////////////////////////////////////////////////////////////////// display data ///////////////////////////////////
 
@@ -62,7 +62,7 @@ const DisplayData = (array) => {
   let box = ``;
   for (let i = 0; i < array.length; i++) {
     var Stars = ``;
-    console.log(array[i].backdrop_path);
+    // console.log(array[i].backdrop_path);
 
     const Rate = Math.floor(array[i].vote_average) / 5;
     for (let i = 0; i < Rate; i++) {
@@ -87,19 +87,19 @@ const DisplayData = (array) => {
           />
 
           <div class="overLayer">
-            <h1 class="text-center text-light" id="title">${array[
+            <h1 class="text-center text-light " id="title">${array[
               i
             ].title.substring(0, 25)}</h1>
-            <p class="text-center text-light fw-light my-1 mb-3">
+            <p class="parag text-center text-light fw-light my-1 mb-3">
             ${array[i].overview.substring(0, 200)}...
             </p>
-            <p class="text-light">Release Date :2024-05-01</p>
-            <div>
+            <p class="text-light animationUp">Release Date :2024-05-01</p>
+            <div class="animationUp">
               ${Stars}
             </div>
 
             <div
-              class="border border-1 border-success p-1 rounded-circle d-inline-block m-2"
+              class=" animationUp border border-1 border-success p-1 rounded-circle d-inline-block m-2"
             >
               <p class="text-light mb-0">${
                 Math.floor(array[i].vote_average * 10) / 10
@@ -180,7 +180,7 @@ const SearchMovies = async (movieName) => {
 
 var selectedTab = "Trending";
 
-console.log(selectedTab);
+// console.log(selectedTab);
 
 const ReternData = () => {
   switch (selectedTab) {
@@ -229,3 +229,103 @@ $("#searchInput").on("input", function (e) {
     ReternData();
   }
 });
+
+// ///////////////////////////////////// input validations //////////////////////////////
+
+var password = "";
+
+function ValidateInputs(element) {
+  const Validators = {
+    name: /^(\w{3,})$/,
+    email: /^(\w)+@((\w)+\.(\w)+)+$/,
+    phoneNumber: /^(01|01|00201)[0-2,5]{1}[0-9]{8}$/,
+    Age: /\b(1[7-9]|[2-9]\d|1[01]\d|120)\b/,
+    password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+  };
+
+  if (element.id === "Repassword") {
+    console.log("password", password);
+    if (element.value == password) {
+      RemoveError(element.id);
+      return true;
+    } else {
+      AddError(element.id);
+      return false;
+    }
+  } else if (Validators[element.id].test(element.value)) {
+    RemoveError(element.id);
+    return true;
+  } else {
+    AddError(element.id);
+    return false;
+  }
+}
+
+$("input").on("input", function (evt) {
+  if (evt.target.id == "password") {
+    password = evt.target.value;
+  }
+
+  ValidateInputs(this);
+});
+
+$("input").on("keypress", function (evt) {
+  if (evt.target.id == "phoneNumber" || evt.target.id == "Age") {
+    if (evt.which < 48 || evt.which > 57) {
+      evt.preventDefault();
+    }
+  }
+});
+
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+
+togglePassword.addEventListener("click", function () {
+  const type =
+    passwordInput.getAttribute("type") === "password" ? "text" : "password";
+  passwordInput.setAttribute("type", type);
+  togglePassword.classList.toggle("fa-eye-slash");
+  togglePassword.classList.toggle("fa-eye");
+});
+
+// Show the eye icon when the input is focused
+passwordInput.addEventListener("focus", () => {
+  togglePassword.style.opacity = "1";
+  togglePassword.style.transform = "translateY(0%)";
+});
+
+// Hide the eye icon when the input loses focus and there is no value
+passwordInput.addEventListener("blur", () => {
+  if (!passwordInput.value) {
+    togglePassword.style.opacity = "0";
+    togglePassword.style.transform = "translateY(-100%)";
+  }
+});
+
+$("button").on("mouseover", function (event) {
+  if ($("button").hasClass("shake")) {
+    if ($("button").hasClass("rightTranslate")) {
+      $("button").removeClass("rightTranslate");
+      $("button").addClass("leftTranslate");
+    } else {
+      $("button").removeClass("leftTranslate");
+      $("button").addClass("rightTranslate");
+    }
+  }
+});
+
+const AddError = (selector) => {
+  $(`.${selector}`).removeClass("d-none");
+  $(`.${selector}`).addClass("d-block");
+  $("button").removeClass("btn-dark");
+  $("button").addClass("btn-danger");
+  $("button").addClass("shake");
+};
+
+const RemoveError = (selector) => {
+  $(`.${selector}`).removeClass("d-block");
+  $(`.${selector}`).addClass("d-none");
+  $("button").removeClass("btn-danger");
+  $("button").removeClass("shake");
+  $("button").addClass("btn-dark");
+};

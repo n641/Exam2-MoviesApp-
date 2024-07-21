@@ -64,23 +64,93 @@
       <div class="row m-5 g-4 data-section"></div>
     </section>
 
-    <section id="contact" class=" w-75 mx-auto">
-      <p class="fs-1 text-light fw-light my-4 ms-5">Contact Us</p>
-      <div class="row mb-5 g-3">
-        <input
-          type="email"
-          class="col-lg-6"
-          id="exampleFormControlInput1"
-          placeholder="name@example.com"
-        />
-        <input
-          type="email"
-          class="col-lg-6"
+    <section id="contact" class="w-75 mx-auto">
+      <p class="fs-1 text-light fw-light my-4">Contact Us</p>
 
-          id="exampleFormControlInput1"
-          placeholder="name@example.com"
-        />
-      </div>
+      <form class="position-relative">
+        <div class="row mb-3 gy-3">
+          <div class="col-lg-6">
+            <input
+              type="email"
+              id="name"
+              class="w-100"
+              placeholder="Enter your Name"
+            />
+            <p class="m-1 text-danger name d-none">Enter Valid Name</p>
+          </div>
+
+          <div class="col-lg-6">
+            <input
+              type="text"
+              id="email"
+              class="w-100"
+              placeholder="Enter your Email"
+            />
+            <p class="m-1 text-danger email d-none">
+              InValid Email , try example@domin.com
+            </p>
+          </div>
+        </div>
+
+        <div class="row mb-3 gy-3">
+          <div class="col-lg-6">
+            <input
+              type="text"
+              class="w-100"
+              id="phoneNumber"
+              placeholder="Enter your phoneNumber"
+            />
+            <p class="m-1 text-danger phoneNumber d-none phoneNumber">
+              InValid phoneNumber
+            </p>
+          </div>
+
+          <div class="col-lg-6">
+            <input
+              type="text"
+              class="w-100"
+              id="Age"
+              placeholder="Enter your Age"
+              maxlength="3"
+            />
+            <p class="m-1 text-danger d-none Age">Your age must be above +16</p>
+          </div>
+        </div>
+
+        <div class="row mb-3 g-3">
+          <div class="col-lg-6">
+            <div class="position-relative">
+              <input
+                type="password"
+                class="w-100 z-n1"
+                id="password"
+                placeholder="Enter your Password"
+              />
+              <i
+                class="eye fa-regular fa-eye-slash position-absolute bottom-0 end-20 text-light z-3"
+                id="togglePassword"
+              ></i>
+            </div>
+
+            <p class="m-1 text-danger password d-none">
+              Password must conatine number & letters at least 8 character
+            </p>
+          </div>
+
+          <div class="col-lg-6">
+            <input
+              type="password"
+              class="w-100"
+              id="Repassword"
+              placeholder="ReEnter Password"
+            />
+            <p class="m-1 text-danger Repassword d-none">Password not match</p>
+          </div>
+        </div>
+      </form>
+      <button type="button" class="btn btn-dark mb-5" id="submitButton">
+        Submit
+      </button>
     </section>
 
     <script src="js/jquery-3.7.1.min.js"></script>
