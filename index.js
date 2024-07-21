@@ -14,7 +14,7 @@ $(".drawer").css("left", -DrawerWidth + sideMenueWidth);
 
 const ToggleSlider = () => {
   if ($(".drawer").css("left") == `${-DrawerWidth + sideMenueWidth}px`) {
-    $(".drawer").animate({ left: `0px` });
+    $(".drawer").animate({ left: `20px` });
 
     $("close-item").removeClass("fa-align-justify");
     $(".close-item").addClass("fa-x");
@@ -329,3 +329,11 @@ const RemoveError = (selector) => {
   $("button").removeClass("shake");
   $("button").addClass("btn-dark");
 };
+
+setTimeout(()=>{
+  $('.loaderContainer').animate({opacity:0} , "slow" , function(){
+  $(".loaderContainer").addClass("d-none");
+    
+  })
+
+},1000)

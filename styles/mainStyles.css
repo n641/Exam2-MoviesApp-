@@ -3,7 +3,7 @@ body {
   transition: 1s all;
 }
 
-.end-20{
+.end-20 {
   right: 10px;
   bottom: 10px !important;
 }
@@ -242,23 +242,24 @@ section {
 input:focus + .eye {
   opacity: 1;
   transform: translateY(0%);
-
 }
 
 input:not(:focus) + .eye {
   opacity: 0;
   transform: translateY(-100%);
-
 }
 
 @keyframes shake {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
-  20%, 60% {
+  20%,
+  60% {
     transform: translateX(-10px);
   }
-  40%, 80% {
+  40%,
+  80% {
     transform: translateX(10px);
   }
 }
@@ -279,3 +280,45 @@ input:not(:focus) + .eye {
   transform: translateX(200px);
 }
 
+/* ///////////////////////////////////////loader //////////////////////////////////////// */
+
+.loaderContainer {
+  position: absolute;
+  left: 50%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(0, 0%, 0%, 0.727);
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid #fff;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* //////////////////////////////////////// media /////////////////////////// */
+
+@media screen and (max-width: 720px) {
+  .sideMenue{
+    display: none !important;
+  }
+}
